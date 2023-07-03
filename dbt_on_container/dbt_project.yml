@@ -33,5 +33,9 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   dbt_on_container:
     # Config indicated by + and applies to all files under models/example/
-    example:
-      +materialized: view
+    transform:
+        +schema: transform
+        +materialized: view
+    analysis:
+        +schema: analysis
+        +materialized: view

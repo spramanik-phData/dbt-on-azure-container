@@ -1,15 +1,18 @@
-Welcome to your new dbt project!
+This is a demo dbt project to be used in mutiple POC
 
-### Using the starter project
+### Seeds
+As this is a demo project we are not loading any data directly to Snowflake, we have created seed files that pushes the data to snowflake. This was we don't have to worry about data everytime we re-use this project.
 
-Try running the following commands:
-- dbt run
-- dbt test
+This project uses hotel bookings data:
+- [bookings_1](seeds/bookings_1.csv)
+- [bookings_2](seeds/bookings_2.csv)
+- [customers](seeds/customers.csv)
 
-
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+### Models
+- Transform : Preps the data for further report generation
+    - [combined_bookings](models/transform/combined_bookings.sql)
+    - [customer](models/transform/customer.sql)
+    - [prepped_data](models/transform/prepped_data.sql)
+- Analysis : Uses models from transform to form the final data product
+    - [hotel_count_by_day](models/analysis/hotel_count_by_day.sql)
+    - [thirty_day_avg_cost](models/analysis/thirty_day_avg_cost.sql)
