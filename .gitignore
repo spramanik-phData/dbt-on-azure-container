@@ -1,2 +1,3 @@
 venv/
 logs/
+dbt_env.sh
